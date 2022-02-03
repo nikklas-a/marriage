@@ -8,20 +8,17 @@ from matplotlib import pyplot as plt
 import numpy as np
 import pandas as pd
 import openpyxl
-from openpyxl import load_workbook
-from openpyxl import Workbook
 import os, shutil
 import os
 from os import listdir
 from os.path import isfile, join
 from time import time
 from datetime import datetime
-import matplotlib.pyplot as plt
 
 #Data-files
-data_divorce = pd.ExcelFile('divorce.xlsx')
-data_marriage = pd.ExcelFile('marrige.xlsx')
-data_nr_divorces = pd.ExcelFile('divorces.xlsx')
+data_divorce = pd.ExcelFile('./static/data/divorce.xlsx')
+data_marriage = pd.ExcelFile('./static/data/marrige.xlsx')
+data_nr_divorces = pd.ExcelFile('./static/data/divorces.xlsx')
 
 #Read data-files
 df_divorce = pd.read_excel(data_divorce, sheet_name="1", skiprows=1)
@@ -129,5 +126,5 @@ ax.set_xlim(start_year-1)
 
 #Draw the chart and print to file
 plt.tight_layout()
-plt.savefig(f'marriageanddivorce.png', facecolor=fig.get_facecolor(), edgecolor='none', bbox_inches="tight")
+plt.savefig(f'./static/output/output.png', facecolor=fig.get_facecolor(), edgecolor='none', bbox_inches="tight")
 plt.show()
